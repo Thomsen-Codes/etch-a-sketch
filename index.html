@@ -5,13 +5,39 @@
     <meta charset="UTF-8">
     <link rel="icon" href="logos/sketchpad-dark.svg" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="logos/sketchpad-light.svg" media="(prefers-color-scheme: light)">
-
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch A Sketch</title>
 </head>
 
 <body>
+    <header class="header">
+        <div>
+            <h1>Etch a Sketch</h1>
+        </div>
+    </header>
+    <div class="sketchboard">
+        <div class="selections">
+            <select class="select" name="Choose Colour" aria-placeholder="Choose Colour" id="color-choice">
+                <option value="">Choose a Colour</option>
+                <option value="Black">Black</option>
+                <option value="Green">Green</option>
+                <option value="Blue">Blue</option>
+                <option value="Rainbow">Rainbow</option>
+            </select>
+            <form id="form">
+                <label for="form">Enter Grid size</label>
+                <input type="number" id="number" min="16" max="100" placeholder="16-100">
+                <button type="submit" class="submit-btn">Submit</button>
+                <p id="error"></p>
+            </form>
 
+            <button class="clear-button">Clear</button>
+        </div>
+        <div class="container"></div>
+    </div>
+    <footer>2025. The Odin Project</footer>
 </body>
 
 </html>
