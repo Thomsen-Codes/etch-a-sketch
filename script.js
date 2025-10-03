@@ -63,21 +63,31 @@ function colorBox() {
   grid.addEventListener("mouseover", function (event) {
     if (event.target.classList.contains("box")) {
       event.target.classList.remove("black", "blue", "green", "rainbow");
-      if (color === "Black") {
-        event.target.classList.add("black");
-      }
-      if (color === "Blue") {
-        event.target.classList.add("blue");
-      }
-      if (color === "Green") {
-        event.target.classList.add("green");
-      }
-      if (color === "Rainbow") {
-        let randomColour = getRandomColour();
-        event.target.style.setProperty("--rainbow-color", randomColour);
-        event.target.classList.add("rainbow");
+      switch (color) {
+        case "Black":
+          event.target.classList.add("black");
+          break;
+        case "Green":
+          event.target.classList.add("green");
+          break;
+        case "Blue":
+          event.target.classList.add("blue");
+
+        case "Rainbow":
+          let randomColour = getRandomColour();
+          event.target.style.setProperty("--rainbow-color", randomColour);
+          event.target.classList.add("rainbow");
+          break;
       }
     }
   });
 }
 colorBox();
+
+//give functionality to the 'Reset' Button
+clearBtn.addEventListener("click", () => {
+  let boxes = document.querySelectorAll(".box");
+  boxes.forEach((box) => {
+    box.classList.remove("black", "blue", "green", "rainbow");
+  });
+});

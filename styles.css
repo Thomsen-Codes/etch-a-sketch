@@ -95,9 +95,6 @@ body {
 .rainbow {
   background-color: var(--rainbow-color);
 }
-.box:hover {
-  background-color: rgb(117, 13, 13);
-}
 
 .clear-button {
   margin-top: 22rem;
