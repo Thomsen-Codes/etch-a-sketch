@@ -1,8 +1,9 @@
 let container = document.querySelector(".container");
 let clearBtn = document.querySelector(".clear-button");
 let gridBtn = document.querySelector(".submit-btn");
-let errorMessage = document.getElementById("error");
 let form = document.getElementById("form");
+let box = document.querySelector(".box");
+let colorOne = document.querySelector("color-choice");
 
 //User creating the grid
 form.addEventListener("submit", function (event) {
@@ -18,7 +19,7 @@ form.addEventListener("submit", function (event) {
   }
 });
 
-//testing
+//It makes it work
 form.dispatchEvent(new Event("submit"));
 
 //create div
@@ -36,3 +37,47 @@ function defaultGrid() {
     grid.classList.add("box");
   }
 }
+//getting random colour
+function getRandomColour() {
+  const hex = `0123456789ABCDEF`;
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+//fixed by chatgpt
+function colorBox() {
+  let color = "";
+  let colorSelect = document.getElementById("color-choice");
+  let grid = document.querySelector(".container");
+
+  // track current color
+  colorSelect.addEventListener("change", function (event) {
+    color = event.target.value;
+    console.log("Selected:", color);
+  });
+
+  // single listener on the grid
+  grid.addEventListener("mouseover", function (event) {
+    if (event.target.classList.contains("box")) {
+      event.target.classList.remove("black", "blue", "green", "rainbow");
+      if (color === "Black") {
+        event.target.classList.add("black");
+      }
+      if (color === "Blue") {
+        event.target.classList.add("blue");
+      }
+      if (color === "Green") {
+        event.target.classList.add("green");
+      }
+      if (color === "Rainbow") {
+        let randomColour = getRandomColour();
+        event.target.style.setProperty("--rainbow-color", randomColour);
+        event.target.classList.add("rainbow");
+      }
+    }
+  });
+}
+colorBox();
