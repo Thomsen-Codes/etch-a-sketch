@@ -47,7 +47,7 @@ function getRandomColour() {
   return color;
 }
 
-//fixed by chatgpt
+//Color the boxes
 function colorBox() {
   let color = "";
   let colorSelect = document.getElementById("color-choice");
