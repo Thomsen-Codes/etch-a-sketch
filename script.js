@@ -1,9 +1,9 @@
 let container = document.querySelector(".container");
+let colorOne = document.querySelector("color-choice");
 let clearBtn = document.querySelector(".clear-button");
 let gridBtn = document.querySelector(".submit-btn");
 let form = document.getElementById("form");
 let box = document.querySelector(".box");
-let colorOne = document.querySelector("color-choice");
 
 //User creating the grid
 form.addEventListener("submit", function (event) {
@@ -72,7 +72,7 @@ function colorBox() {
           break;
         case "Blue":
           event.target.classList.add("blue");
-
+          break;
         case "Rainbow":
           let randomColour = getRandomColour();
           event.target.style.setProperty("--rainbow-color", randomColour);
